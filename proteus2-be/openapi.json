@@ -1,0 +1,3417 @@
+
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "proteus2-be",
+    "version": "0.0.1",
+    "description": "proteus2-be",
+    "contact": {
+      "name": "mhayde",
+      "email": "mhayde@unitec.edu"
+    }
+  },
+  "paths": {
+    "/cpagos/count": {
+      "get": {
+        "x-controller-name": "CpagoController",
+        "x-operation-name": "count",
+        "tags": [
+          "CpagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cpago model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Cpago.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Cpago>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CpagoController.count"
+      }
+    },
+    "/cpagos/{id}/pago": {
+      "get": {
+        "x-controller-name": "CpagoPagoController",
+        "x-operation-name": "getPago",
+        "tags": [
+          "CpagoPagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pago belonging to Cpago",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pago"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "CpagoPagoController.getPago"
+      }
+    },
+    "/cpagos/{id}": {
+      "put": {
+        "x-controller-name": "CpagoController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "CpagoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Cpago PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cpago"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CpagoController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "CpagoController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "CpagoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Cpago PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CpagoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CpagoController.updateById"
+      },
+      "get": {
+        "x-controller-name": "CpagoController",
+        "x-operation-name": "findById",
+        "tags": [
+          "CpagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cpago model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CpagoWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cpago.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CpagoController.findById"
+      },
+      "delete": {
+        "x-controller-name": "CpagoController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "CpagoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Cpago DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "CpagoController.deleteById"
+      }
+    },
+    "/cpagos": {
+      "post": {
+        "x-controller-name": "CpagoController",
+        "x-operation-name": "create",
+        "tags": [
+          "CpagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cpago model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cpago"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCpago"
+              }
+            }
+          }
+        },
+        "operationId": "CpagoController.create"
+      },
+      "patch": {
+        "x-controller-name": "CpagoController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "CpagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cpago PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Cpago.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Cpago>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CpagoPartial"
+              }
+            }
+          }
+        },
+        "operationId": "CpagoController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "CpagoController",
+        "x-operation-name": "find",
+        "tags": [
+          "CpagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Cpago model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CpagoWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cpago.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CpagoController.find"
+      }
+    },
+    "/pagos/count": {
+      "get": {
+        "x-controller-name": "PagoController",
+        "x-operation-name": "count",
+        "tags": [
+          "PagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pago model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Pago.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Pago>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PagoController.count"
+      }
+    },
+    "/pagos/{id}/cpagos": {
+      "post": {
+        "x-controller-name": "PagoCpagoController",
+        "x-operation-name": "create",
+        "tags": [
+          "PagoCpagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pago model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cpago"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCpagoInPago"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PagoCpagoController.create"
+      },
+      "patch": {
+        "x-controller-name": "PagoCpagoController",
+        "x-operation-name": "patch",
+        "tags": [
+          "PagoCpagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pago.Cpago PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Cpago.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Cpago>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CpagoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PagoCpagoController.patch"
+      },
+      "get": {
+        "x-controller-name": "PagoCpagoController",
+        "x-operation-name": "find",
+        "tags": [
+          "PagoCpagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Pago has many Cpago",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cpago"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PagoCpagoController.find"
+      },
+      "delete": {
+        "x-controller-name": "PagoCpagoController",
+        "x-operation-name": "delete",
+        "tags": [
+          "PagoCpagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pago.Cpago DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Cpago.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Cpago>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PagoCpagoController.delete"
+      }
+    },
+    "/pagos/{id}/user": {
+      "get": {
+        "x-controller-name": "PagoUserController",
+        "x-operation-name": "getUser",
+        "tags": [
+          "PagoUserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User belonging to Pago",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PagoUserController.getUser"
+      }
+    },
+    "/pagos/{id}": {
+      "put": {
+        "x-controller-name": "PagoController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "PagoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Pago PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pago"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PagoController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "PagoController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "PagoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Pago PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PagoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "PagoController.updateById"
+      },
+      "get": {
+        "x-controller-name": "PagoController",
+        "x-operation-name": "findById",
+        "tags": [
+          "PagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pago model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagoWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pago.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PagoController.findById"
+      },
+      "delete": {
+        "x-controller-name": "PagoController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "PagoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Pago DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "PagoController.deleteById"
+      }
+    },
+    "/pagos": {
+      "post": {
+        "x-controller-name": "PagoController",
+        "x-operation-name": "create",
+        "tags": [
+          "PagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pago model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pago"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPago"
+              }
+            }
+          }
+        },
+        "operationId": "PagoController.create"
+      },
+      "patch": {
+        "x-controller-name": "PagoController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "PagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Pago PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Pago.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Pago>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PagoPartial"
+              }
+            }
+          }
+        },
+        "operationId": "PagoController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "PagoController",
+        "x-operation-name": "find",
+        "tags": [
+          "PagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Pago model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PagoWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pago.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "PagoController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/users/count": {
+      "get": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "count",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "User.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<User>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserController.count"
+      }
+    },
+    "/users/{id}/pagos": {
+      "post": {
+        "x-controller-name": "UserPagoController",
+        "x-operation-name": "create",
+        "tags": [
+          "UserPagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pago"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPagoInUser"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserPagoController.create"
+      },
+      "patch": {
+        "x-controller-name": "UserPagoController",
+        "x-operation-name": "patch",
+        "tags": [
+          "UserPagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User.Pago PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Pago.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Pago>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PagoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserPagoController.patch"
+      },
+      "get": {
+        "x-controller-name": "UserPagoController",
+        "x-operation-name": "find",
+        "tags": [
+          "UserPagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of User has many Pago",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pago"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserPagoController.find"
+      },
+      "delete": {
+        "x-controller-name": "UserPagoController",
+        "x-operation-name": "delete",
+        "tags": [
+          "UserPagoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User.Pago DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Pago.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Pago>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserPagoController.delete"
+      }
+    },
+    "/users/{id}/usertype": {
+      "get": {
+        "x-controller-name": "UserUsertypeController",
+        "x-operation-name": "getUsertype",
+        "tags": [
+          "UserUsertypeController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usertype belonging to User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Usertype"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "UserUsertypeController.getUsertype"
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "User PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "User PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UserController.updateById"
+      },
+      "get": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "findById",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserController.findById"
+      },
+      "delete": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "User DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "UserController.deleteById"
+      }
+    },
+    "/users": {
+      "post": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "create",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUser"
+              }
+            }
+          }
+        },
+        "operationId": "UserController.create"
+      },
+      "patch": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "User PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "User.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<User>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPartial"
+              }
+            }
+          }
+        },
+        "operationId": "UserController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "UserController",
+        "x-operation-name": "find",
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of User model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UserController.find"
+      }
+    },
+    "/usertypes/count": {
+      "get": {
+        "x-controller-name": "UsertypeController",
+        "x-operation-name": "count",
+        "tags": [
+          "UsertypeController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usertype model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Usertype.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Usertype>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UsertypeController.count"
+      }
+    },
+    "/usertypes/{id}/users": {
+      "post": {
+        "x-controller-name": "UsertypeUserController",
+        "x-operation-name": "create",
+        "tags": [
+          "UsertypeUserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usertype model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUserInUsertype"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UsertypeUserController.create"
+      },
+      "patch": {
+        "x-controller-name": "UsertypeUserController",
+        "x-operation-name": "patch",
+        "tags": [
+          "UsertypeUserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usertype.User PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "User.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<User>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UsertypeUserController.patch"
+      },
+      "get": {
+        "x-controller-name": "UsertypeUserController",
+        "x-operation-name": "find",
+        "tags": [
+          "UsertypeUserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Usertype has many User",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UsertypeUserController.find"
+      },
+      "delete": {
+        "x-controller-name": "UsertypeUserController",
+        "x-operation-name": "delete",
+        "tags": [
+          "UsertypeUserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usertype.User DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "User.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<User>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UsertypeUserController.delete"
+      }
+    },
+    "/usertypes/{id}": {
+      "put": {
+        "x-controller-name": "UsertypeController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "UsertypeController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Usertype PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usertype"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UsertypeController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "UsertypeController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "UsertypeController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Usertype PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsertypePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "UsertypeController.updateById"
+      },
+      "get": {
+        "x-controller-name": "UsertypeController",
+        "x-operation-name": "findById",
+        "tags": [
+          "UsertypeController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usertype model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsertypeWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usertype.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UsertypeController.findById"
+      },
+      "delete": {
+        "x-controller-name": "UsertypeController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "UsertypeController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Usertype DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "UsertypeController.deleteById"
+      }
+    },
+    "/usertypes": {
+      "post": {
+        "x-controller-name": "UsertypeController",
+        "x-operation-name": "create",
+        "tags": [
+          "UsertypeController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usertype model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usertype"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewUsertype"
+              }
+            }
+          }
+        },
+        "operationId": "UsertypeController.create"
+      },
+      "patch": {
+        "x-controller-name": "UsertypeController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "UsertypeController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usertype PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Usertype.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Usertype>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsertypePartial"
+              }
+            }
+          }
+        },
+        "operationId": "UsertypeController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "UsertypeController",
+        "x-operation-name": "find",
+        "tags": [
+          "UsertypeController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Usertype model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UsertypeWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Usertype.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "UsertypeController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Pago": {
+        "title": "Pago",
+        "type": "object",
+        "properties": {
+          "idpago": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "periodopagado": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fecha",
+          "periodopagado"
+        ],
+        "additionalProperties": false
+      },
+      "Cpago": {
+        "title": "Cpago",
+        "type": "object",
+        "properties": {
+          "idcpago": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "pagoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "NewCpago": {
+        "title": "NewCpago",
+        "type": "object",
+        "description": "(tsType: Omit<Cpago, 'idcpago'>, schemaOptions: { title: 'NewCpago', exclude: [ 'idcpago' ] })",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "pagoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Cpago, 'idcpago'>"
+      },
+      "UsertypeWithRelations": {
+        "title": "UsertypeWithRelations",
+        "type": "object",
+        "description": "(tsType: UsertypeWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "idusertype": {
+            "type": "string"
+          },
+          "usertypename": {
+            "type": "string"
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserWithRelations"
+            }
+          }
+        },
+        "required": [
+          "usertypename"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "UsertypeWithRelations"
+      },
+      "UserWithRelations": {
+        "title": "UserWithRelations",
+        "type": "object",
+        "description": "(tsType: UserWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "iduser": {
+            "type": "string"
+          },
+          "ncedula": {
+            "type": "string"
+          },
+          "cname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "ntelefono": {
+            "type": "string"
+          },
+          "ncasa": {
+            "type": "string"
+          },
+          "usertypeId": {
+            "type": "string"
+          },
+          "usertype": {
+            "$ref": "#/components/schemas/UsertypeWithRelations"
+          },
+          "pagos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PagoWithRelations"
+            }
+          }
+        },
+        "required": [
+          "ncedula",
+          "cname",
+          "email",
+          "ntelefono",
+          "ncasa"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "UserWithRelations"
+      },
+      "PagoWithRelations": {
+        "title": "PagoWithRelations",
+        "type": "object",
+        "description": "(tsType: PagoWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "idpago": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "periodopagado": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "cpagos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CpagoWithRelations"
+            }
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserWithRelations"
+          }
+        },
+        "required": [
+          "fecha",
+          "periodopagado"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "PagoWithRelations"
+      },
+      "CpagoWithRelations": {
+        "title": "CpagoWithRelations",
+        "type": "object",
+        "description": "(tsType: CpagoWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "idcpago": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "pagoId": {
+            "type": "string"
+          },
+          "pago": {
+            "$ref": "#/components/schemas/PagoWithRelations"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "CpagoWithRelations"
+      },
+      "CpagoPartial": {
+        "title": "CpagoPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Cpago>, schemaOptions: { partial: true })",
+        "properties": {
+          "idcpago": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "pagoId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Cpago>"
+      },
+      "NewCpagoInPago": {
+        "title": "NewCpagoInPago",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Cpago, 'idcpago'>, 'pagoId'>, schemaOptions: { title: 'NewCpagoInPago', exclude: [ 'idcpago' ], optional: [ 'pagoId' ] })",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "pagoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Cpago, 'idcpago'>, 'pagoId'>"
+      },
+      "User": {
+        "title": "User",
+        "type": "object",
+        "properties": {
+          "iduser": {
+            "type": "string"
+          },
+          "ncedula": {
+            "type": "string"
+          },
+          "cname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "ntelefono": {
+            "type": "string"
+          },
+          "ncasa": {
+            "type": "string"
+          },
+          "usertypeId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ncedula",
+          "cname",
+          "email",
+          "ntelefono",
+          "ncasa"
+        ],
+        "additionalProperties": false
+      },
+      "NewPago": {
+        "title": "NewPago",
+        "type": "object",
+        "description": "(tsType: Omit<Pago, 'idpago'>, schemaOptions: { title: 'NewPago', exclude: [ 'idpago' ] })",
+        "properties": {
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "periodopagado": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fecha",
+          "periodopagado"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Pago, 'idpago'>"
+      },
+      "PagoPartial": {
+        "title": "PagoPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Pago>, schemaOptions: { partial: true })",
+        "properties": {
+          "idpago": {
+            "type": "string"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "periodopagado": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Pago>"
+      },
+      "NewPagoInUser": {
+        "title": "NewPagoInUser",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Pago, 'idpago'>, 'userId'>, schemaOptions: { title: 'NewPagoInUser', exclude: [ 'idpago' ], optional: [ 'userId' ] })",
+        "properties": {
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "periodopagado": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fecha",
+          "periodopagado"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Pago, 'idpago'>, 'userId'>"
+      },
+      "Usertype": {
+        "title": "Usertype",
+        "type": "object",
+        "properties": {
+          "idusertype": {
+            "type": "string"
+          },
+          "usertypename": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "usertypename"
+        ],
+        "additionalProperties": false
+      },
+      "NewUser": {
+        "title": "NewUser",
+        "type": "object",
+        "description": "(tsType: Omit<User, 'iduser'>, schemaOptions: { title: 'NewUser', exclude: [ 'iduser' ] })",
+        "properties": {
+          "ncedula": {
+            "type": "string"
+          },
+          "cname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "ntelefono": {
+            "type": "string"
+          },
+          "ncasa": {
+            "type": "string"
+          },
+          "usertypeId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ncedula",
+          "cname",
+          "email",
+          "ntelefono",
+          "ncasa"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<User, 'iduser'>"
+      },
+      "UserPartial": {
+        "title": "UserPartial",
+        "type": "object",
+        "description": "(tsType: Partial<User>, schemaOptions: { partial: true })",
+        "properties": {
+          "iduser": {
+            "type": "string"
+          },
+          "ncedula": {
+            "type": "string"
+          },
+          "cname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "ntelefono": {
+            "type": "string"
+          },
+          "ncasa": {
+            "type": "string"
+          },
+          "usertypeId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<User>"
+      },
+      "NewUserInUsertype": {
+        "title": "NewUserInUsertype",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<User, 'iduser'>, 'usertypeId'>, schemaOptions: { title: 'NewUserInUsertype', exclude: [ 'iduser' ], optional: [ 'usertypeId' ] })",
+        "properties": {
+          "ncedula": {
+            "type": "string"
+          },
+          "cname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "ntelefono": {
+            "type": "string"
+          },
+          "ncasa": {
+            "type": "string"
+          },
+          "usertypeId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ncedula",
+          "cname",
+          "email",
+          "ntelefono",
+          "ncasa"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<User, 'iduser'>, 'usertypeId'>"
+      },
+      "NewUsertype": {
+        "title": "NewUsertype",
+        "type": "object",
+        "description": "(tsType: Omit<Usertype, 'idusertype'>, schemaOptions: { title: 'NewUsertype', exclude: [ 'idusertype' ] })",
+        "properties": {
+          "usertypename": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "usertypename"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Usertype, 'idusertype'>"
+      },
+      "UsertypePartial": {
+        "title": "UsertypePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Usertype>, schemaOptions: { partial: true })",
+        "properties": {
+          "idusertype": {
+            "type": "string"
+          },
+          "usertypename": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Usertype>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Cpago.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Cpago.ScopeFilter"
+      },
+      "Cpago.IncludeFilter.Items": {
+        "title": "Cpago.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Cpago.ScopeFilter"
+          }
+        }
+      },
+      "Cpago.Filter": {
+        "type": "object",
+        "title": "Cpago.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idcpago": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "type": "boolean"
+                  },
+                  "pagoId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idcpago",
+                    "status",
+                    "pagoId"
+                  ],
+                  "example": "idcpago"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Cpago.Fields"
+          },
+          "include": {
+            "title": "Cpago.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Cpago.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Cpago>"
+      },
+      "Cpago.Filter1": {
+        "type": "object",
+        "title": "Cpago.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Cpago.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idcpago": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "type": "boolean"
+                  },
+                  "pagoId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idcpago",
+                    "status",
+                    "pagoId"
+                  ],
+                  "example": "idcpago"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Cpago.Fields"
+          },
+          "include": {
+            "title": "Cpago.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Cpago.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Cpago>"
+      },
+      "Pago.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Pago.ScopeFilter"
+      },
+      "Pago.IncludeFilter.Items": {
+        "title": "Pago.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Pago.ScopeFilter"
+          }
+        }
+      },
+      "Pago.Filter": {
+        "type": "object",
+        "title": "Pago.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idpago": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "periodopagado": {
+                    "type": "boolean"
+                  },
+                  "userId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idpago",
+                    "fecha",
+                    "periodopagado",
+                    "userId"
+                  ],
+                  "example": "idpago"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Pago.Fields"
+          },
+          "include": {
+            "title": "Pago.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Pago.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Pago>"
+      },
+      "Pago.Filter1": {
+        "type": "object",
+        "title": "Pago.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Pago.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idpago": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "periodopagado": {
+                    "type": "boolean"
+                  },
+                  "userId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idpago",
+                    "fecha",
+                    "periodopagado",
+                    "userId"
+                  ],
+                  "example": "idpago"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Pago.Fields"
+          },
+          "include": {
+            "title": "Pago.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Pago.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Pago>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "User.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "User.ScopeFilter"
+      },
+      "User.IncludeFilter.Items": {
+        "title": "User.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/User.ScopeFilter"
+          }
+        }
+      },
+      "User.Filter": {
+        "type": "object",
+        "title": "User.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "iduser": {
+                    "type": "boolean"
+                  },
+                  "ncedula": {
+                    "type": "boolean"
+                  },
+                  "cname": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "boolean"
+                  },
+                  "ntelefono": {
+                    "type": "boolean"
+                  },
+                  "ncasa": {
+                    "type": "boolean"
+                  },
+                  "usertypeId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "iduser",
+                    "ncedula",
+                    "cname",
+                    "email",
+                    "ntelefono",
+                    "ncasa",
+                    "usertypeId"
+                  ],
+                  "example": "iduser"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "User.Fields"
+          },
+          "include": {
+            "title": "User.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/User.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<User>"
+      },
+      "User.Filter1": {
+        "type": "object",
+        "title": "User.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "User.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "iduser": {
+                    "type": "boolean"
+                  },
+                  "ncedula": {
+                    "type": "boolean"
+                  },
+                  "cname": {
+                    "type": "boolean"
+                  },
+                  "email": {
+                    "type": "boolean"
+                  },
+                  "ntelefono": {
+                    "type": "boolean"
+                  },
+                  "ncasa": {
+                    "type": "boolean"
+                  },
+                  "usertypeId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "iduser",
+                    "ncedula",
+                    "cname",
+                    "email",
+                    "ntelefono",
+                    "ncasa",
+                    "usertypeId"
+                  ],
+                  "example": "iduser"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "User.Fields"
+          },
+          "include": {
+            "title": "User.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/User.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<User>"
+      },
+      "Usertype.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Usertype.ScopeFilter"
+      },
+      "Usertype.IncludeFilter.Items": {
+        "title": "Usertype.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Usertype.ScopeFilter"
+          }
+        }
+      },
+      "Usertype.Filter": {
+        "type": "object",
+        "title": "Usertype.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idusertype": {
+                    "type": "boolean"
+                  },
+                  "usertypename": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idusertype",
+                    "usertypename"
+                  ],
+                  "example": "idusertype"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Usertype.Fields"
+          },
+          "include": {
+            "title": "Usertype.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Usertype.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Usertype>"
+      },
+      "Usertype.Filter1": {
+        "type": "object",
+        "title": "Usertype.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Usertype.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idusertype": {
+                    "type": "boolean"
+                  },
+                  "usertypename": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idusertype",
+                    "usertypename"
+                  ],
+                  "example": "idusertype"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Usertype.Fields"
+          },
+          "include": {
+            "title": "Usertype.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Usertype.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Usertype>"
+      }
+    }
+  }
+}
